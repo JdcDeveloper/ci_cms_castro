@@ -3,7 +3,7 @@
 <br>
 
 <div class="row page-header col-md-6 col-md-offset-3 ">	
-	<h2 class="fas fa-briefcase">Login Cms Castro</h2>
+	<h2 class="fas fa-user-secret">Login Cms Castro</h2>
 </div>
 
 <div class="row col-md-6 col-md-offset-3 ">
@@ -11,7 +11,7 @@
 	<form action="<?php echo base_url();?>login/iniciarsession" method="post">
 		<div class="form-group">
 			<label type="hidden" id="usuarioM"></label>
-			<input type="text" name="usuario" placeholder="Usuario" class="form-control" id="usuario">
+			<input type="text" name="usuario" placeholder="Usuario o Email" class="form-control" id="usuario">
 		</div>	
 		
 		<div class="form-group">

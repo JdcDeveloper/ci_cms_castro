@@ -51,12 +51,12 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fas fa-chalkboard fa-5x"></i>
+                                        <i class="fas fa-camera fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         
-                                        <div>Profesores
-                                            <div>                        
+                                        <div>Fotografos
+                                            <div><?php echo $tFotografos->totalfotografos?>                 
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                </div>
+              
 
                           <!--  fin profesores -->
 
@@ -82,11 +82,11 @@
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fas fa-graduation-cap fa-5x"></i>
+                                        <i class="fas fa-male fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">                                        
-                                        <div>Estudiantes
-                                        	<div>                  		
+                                        <div>Modelos
+                                        	<div><?php echo $tModelos->totalmodelos?>                  		
                                         	</div>
                                         </div>
                                     </div>
@@ -106,18 +106,18 @@
                    <!--  fin estudiantes -->
 
 
-            </div> <!--First Row-->
+           
 
            <div class="col-lg-3 col-md-6">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fas fa-fas fa-smile fa-5x"></i>
+                                        <i class="fas fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                       
-                                        <div>Estudiantes Aprobados
+                                        <div>Comentarios
                                             <div>                       
                                             </div>
                                         </div>
@@ -143,22 +143,41 @@
 
 
             </div> <!--First row !-->
+</div>
+<br>
+<br>
 
 
-
-
-<!-- 
 <div class="container">
 	
 
-<div class="row col-md-4 col-md-offset-6 ">
- <div id="grafico" style="width: 900px; height: 500px;"></div>
-
-	
+<div class="col-md-4 ">
+ <button class="btn-info btn-lg fas fa-chart-bar" id="usuariosEsconder">Usuarios</button>
+ <br>
+ <br>
+ <div id="graficoUsuarios" ></div>	
 </div>
 
-</div> -->
+
+<div class="col-md-4 ">
+ <button class="btn-info btn-lg fas fa-chart-bar" id="fotografosEsconder">Fotografos</button>
+ <br>
+ <br>  
+ <div id="graficoFotografos"></div>    
+</div>
+
+<div class="col-md-4 ">
+ <button class="btn-info btn-lg fas fa-chart-bar" id="modelosEsconder">Modelos</button>
+ <br>
+ <br>  
+ <div id="graficoModelos" ></div>    
+</div>
+
+</div>
 
 
 <br>
 <br>
+<br>
+<br>
+

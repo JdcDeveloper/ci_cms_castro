@@ -5,6 +5,7 @@ class Usuarios extends CI_Controller {
 	
 	public function index()
 	{
+        $data['title'] = "usuarios"; 
         // valido que el usuario registrado se encuentre logeado, y evitar que gente (hackers) entren atraves de una url por ejemplo http://localhost/cms_castro/dashboard
         if ($this->session->userdata('usuario')) {
 
@@ -16,7 +17,7 @@ class Usuarios extends CI_Controller {
 
             $data['datoss'] = $this->usuarios_model->seleccionarUsuarios();
 
-            $this->load->view('layouts/header');
+            $this->load->view('layouts/header',$data);
             $this->load->view('admin/navbar',$data);
             $this->load->view('admin/navigation');
             $this->load->view('admin/usuarios',$data);
@@ -112,6 +113,69 @@ class Usuarios extends CI_Controller {
         print_r(json_encode($data));      
        
     }
+
+        public function obtener()
+  {
+      // combo dependiente a lo pro Jonathan Castro Style
+
+      $estado=$_POST["miestado"];
+
+      $data=$this->usuarios_Model->obtenerCapitales($estado);
+
+      // print_r(json_encode($data)); 
+
+      echo '<option>'.$data->capital.'</option>';
+
+
+
+      
+
+    // combo dependiente a lo picapiedra
+
+      // $options="";
+    //       if ($_POST["miestado"]== 'Amazonas') 
+    //       {
+    //           $options= '
+    //           <option value="Puerto Ayacucho">Puerto Ayacucho</option>           
+    //           ';   
+        
+    //       }
+
+    //        if ($_POST["miestado"]== 'Anzoátegui') 
+    //       {
+    //           $options= '
+    //           <option value="Aragua">Aragua</option>           
+    //           ';         
+        
+    //       }
+
+    //           if ($_POST["miestado"]== 'Apure') 
+    //       {
+    //           $options= '
+    //           <option value="San Fernando de Apure">San Fernando de Apure</option>           
+    //           ';         
+        
+    //       }
+
+   //              if ($_POST["miestado"]== 'Aragua') 
+    //       {
+    //           $options= '
+    //           <option value="Maracay">Maracay</option>           
+    //           ';         
+        
+    //       }
+
+    //              if ($_POST["miestado"]== 'Barinas') 
+    //       {
+    //           $options= '
+    //           <option value="Barinas">Barinas</option>           
+    //           ';         
+        
+    //       }
+
+    //       echo $options;
+
+  }
 
 
 

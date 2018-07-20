@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.8.1
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 21-06-2018 a las 23:25:13
--- Versión del servidor: 5.7.22-0ubuntu0.16.04.1
--- Versión de PHP: 7.0.30-0ubuntu0.16.04.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 20-07-2018 a las 16:48:09
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -101,6 +103,50 @@ INSERT INTO `estados` (`id`, `estado`) VALUES
 (22, 'Vargas'),
 (23, 'Yaracuy'),
 (24, 'Zulia');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fotografos`
+--
+
+CREATE TABLE `fotografos` (
+  `id` int(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellido` varchar(255) NOT NULL,
+  `fotografias` varchar(255) NOT NULL,
+  `ventas` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `fotografos`
+--
+
+INSERT INTO `fotografos` (`id`, `nombre`, `apellido`, `fotografias`, `ventas`) VALUES
+(1, 'jose', 'kamil', 'monalisa', 10),
+(2, 'sancho', 'panza', 'gato gordo', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `modelos`
+--
+
+CREATE TABLE `modelos` (
+  `id` int(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellido` varchar(255) NOT NULL,
+  `contratos` int(255) NOT NULL,
+  `ofertas` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `modelos`
+--
+
+INSERT INTO `modelos` (`id`, `nombre`, `apellido`, `contratos`, `ofertas`) VALUES
+(1, 'brad', 'pit', 7, 20),
+(2, 'cristiano', 'ronaldo', 8, 25);
 
 -- --------------------------------------------------------
 
@@ -208,6 +254,18 @@ ALTER TABLE `estados`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `fotografos`
+--
+ALTER TABLE `fotografos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `modelos`
+--
+ALTER TABLE `modelos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `parroquias`
 --
 ALTER TABLE `parroquias`
@@ -234,26 +292,44 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `capitales`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT de la tabla `fotografos`
+--
+ALTER TABLE `fotografos`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `modelos`
+--
+ALTER TABLE `modelos`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `parroquias`
 --
 ALTER TABLE `parroquias`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

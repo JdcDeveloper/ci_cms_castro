@@ -7,9 +7,11 @@ class Login_model extends CI_Model {
 		public function loginAdmin($usuario ,$contrasena )
 	{
 
-		$sql = "SELECT usuario,contrasena from usuarios where usuario='$usuario' and
-		contrasena='$contrasena' and role='admin'	
+		$sql = "SELECT usuario,contrasena,email from usuarios where usuario='$usuario' and
+		contrasena='$contrasena' and role='admin' ||  email='$usuario' and
+		contrasena='$contrasena' and role='admin' 	
 		";
+				
 
 		$query = $this->db->query($sql);
 
@@ -20,8 +22,9 @@ class Login_model extends CI_Model {
 		public function loginUsuarios($usuario ,$contrasena )
 	{
 
-		$sql = "SELECT usuario,contrasena from usuarios where usuario='$usuario' and
-		contrasena='$contrasena' and role='usuario'	
+		$sql = "SELECT usuario,contrasena,email from usuarios where usuario='$usuario' and
+		contrasena='$contrasena' and role='usuario'	||  email='$usuario' and
+		contrasena='$contrasena' and role='usuario'
 		";
 
 		$query = $this->db->query($sql);

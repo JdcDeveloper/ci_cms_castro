@@ -6,7 +6,9 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('layouts/header');
+		$data['title'] = "login";
+
+		$this->load->view('layouts/header',$data);
 		$this->load->view('layouts/navbar');
 		$this->load->view('login');
 		$this->load->view('layouts/footer');
@@ -15,6 +17,7 @@ class Login extends CI_Controller {
 
 	public function iniciarSession()
 	{
+			$data['title'] = "dashboard";
 
 			$usuario = $this->input->post('usuario');
 			$contrasena = $this->input->post('contrasena');
@@ -29,6 +32,20 @@ class Login extends CI_Controller {
 			// traemos la data para mostrar el total de usuarios
 			$data['tUsuarios'] = $this->usuarios_model->totalUsuarios();
 
+			$data['tFotografos'] = $this->usuarios_model->totalFotografos();
+
+			$data['tModelos'] = $this->usuarios_model->totalModelos();
+
+			//data chart fotografos
+			$data['tFotografias'] = $this->usuarios_model->totalFotografias();
+
+			$data['tVentas'] = $this->usuarios_model->totalVentas();
+
+			// data chart modelos
+			$data['tContratos'] = $this->usuarios_model->totalContratos();
+
+			$data['tOfertas'] = $this->usuarios_model->totalOfertas();
+
 			// traemos la data para mostrar la imagen de perfil
 			$data['datos']=$this->login_model->mostrarImagen();
 
@@ -40,7 +57,7 @@ class Login extends CI_Controller {
 			
 			if ($existeUserPassAdmin)
 			{
-				$this->load->view('layouts/header');
+				$this->load->view('layouts/header',$data);
 				$this->load->view('admin/navbar',$data);
 				$this->load->view('admin/navigation');				
 				$this->load->view('admin/dashboard',$data);				

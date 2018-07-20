@@ -102,7 +102,7 @@ class Usuarios_model extends CI_Model {
 
 
 
-		public function totalUsuarios()
+	public function totalUsuarios()
 	{		
 		
 		$sql = "SELECT COUNT(usuario) AS totalusuarios FROM usuarios";
@@ -113,7 +113,89 @@ class Usuarios_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function totalFotografos()
+	{		
+		
+		$sql = "SELECT COUNT(nombre) AS totalfotografos FROM fotografos";
+		
 
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+		public function totalModelos()
+	{		
+		
+		$sql = "SELECT COUNT(nombre) AS totalmodelos FROM modelos";
+		
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+		public function totalFotografias()
+	{		
+		
+		$sql = "SELECT COUNT(fotografias) AS totalfotografias FROM fotografos";
+		
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+		public function totalVentas()
+	{		
+		
+		$sql = "SELECT SUM(ventas) AS totalventas from fotografos;";
+		
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+		public function totalContratos()
+	{		
+		
+		$sql = "SELECT SUM(contratos) AS totalcontratos from modelos;";
+		
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+		public function totalOfertas()
+	{		
+		
+		$sql = "SELECT SUM(ofertas) AS totalofertas from modelos;";
+		
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
+
+
+
+
+
+
+
+	public function obtenerCapitales($estado)
+	{
+		$sql = "SELECT estados.estado,
+				capitales.capital			
+				from estados  INNER JOIN capitales on estados.id= capitales.id			
+				where estados.estado = '$estado'";
+
+		$query = $this->db->query($sql);
+
+		return $query->row();
+	}
 	
 
 

@@ -1,5 +1,5 @@
 
-	<div class="row col-md-6 col-md-offset-1">
+	<div class="row col-md-12 col-md-offset-1">
 
 		<div class="page-header">
   			<h1>Admin Usuarios <small>Castro Tours</small></h1>
@@ -83,4 +83,6 @@
 <br>
 
 </div>
+
+
 

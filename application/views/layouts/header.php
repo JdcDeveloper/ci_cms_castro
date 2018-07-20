@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">	
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Proyecto transporte</title>
+	<title><?php echo $title ?></title>
 
 	<!-- bootstrap estilos importante copiar la carpeta fonts en nuestro proyecto
 	para poder usar glipicon etc -->
