@@ -32,6 +32,7 @@ class Usuarios extends CI_Controller {
 
         public function agregar()
     {   
+        $data['title'] = "agregar";
 
         if ($this->session->userdata('usuario')) {
 
@@ -40,7 +41,7 @@ class Usuarios extends CI_Controller {
             // traemos la data para mostrar la imagen de perfil
             $data['datos']=$this->login_model->mostrarImagen();     
 
-            $this->load->view('layouts/header');
+            $this->load->view('layouts/header',$data);
             $this->load->view('admin/navbar',$data);
             $this->load->view('admin/navigation');
             $this->load->view('admin/agregar_usuarios');
@@ -182,7 +183,9 @@ class Usuarios extends CI_Controller {
 
         // obtengo el parametro id
         public function editar($id) {       
-                
+             
+             $data['title'] = "editar"; 
+
             // mantego abierta los datos de la session
             $data['usuario'] = $this->session->userdata('usuario');
             // $data['contrasena'] = $this->session->userdata('contrasena');   
@@ -206,7 +209,7 @@ class Usuarios extends CI_Controller {
                 
                 } 
                 
-                $this->load->view('layouts/header');
+                $this->load->view('layouts/header',$data);
                 $this->load->view('admin/navbar',$data);
                 $this->load->view('admin/navigation');           
                 $this->load->view('admin/editar_usuarios',$data);
@@ -228,6 +231,7 @@ class Usuarios extends CI_Controller {
 
      public function ver($id)   {
        
+        $data['title'] = "ver";
 
         $data['usuario'] = $this->session->userdata('usuario');
         $data['contrasena'] = $this->session->userdata('contrasena');       
@@ -237,7 +241,7 @@ class Usuarios extends CI_Controller {
         // traemos la data para mostrar la imagen de perfil
         $data['datos']=$this->login_model->mostrarImagen(); 
 
-        $this->load->view('layouts/header');
+        $this->load->view('layouts/header',$data);
         $this->load->view('admin/navbar',$data);
         $this->load->view('admin/navigation');       
         $this->load->view('admin/ver_usuarios',$data);

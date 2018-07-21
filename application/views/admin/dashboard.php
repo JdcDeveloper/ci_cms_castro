@@ -118,7 +118,7 @@
                                     <div class="col-xs-9 text-right">
                                       
                                         <div>Comentarios
-                                            <div>                       
+                                            <div><?php echo $tComentarios->totalcomentarios?>                                            
                                             </div>
                                         </div>
                                     </div>

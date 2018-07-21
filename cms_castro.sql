@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2018 a las 16:48:09
+-- Tiempo de generación: 21-07-2018 a las 21:31:08
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -62,6 +62,34 @@ INSERT INTO `capitales` (`id`, `capital`) VALUES
 (22, 'La Guaira'),
 (23, 'San Felipe'),
 (24, 'Maracaibo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(255) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `comentario` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `nombre`, `comentario`) VALUES
+(1, 'jonathan', 'agregando funcionalidad'),
+(2, 'jose', 'ok excelente'),
+(4, 'maria', 'ok,buen cms'),
+(5, 'joseito', 'buena'),
+(6, 'Carmen Rosa', 'El sistema me parece muy eficaz lo recomiendo'),
+(7, 'camilo', 'buenas.amigos'),
+(8, 'petra', 'ok,chevere'),
+(9, 'pancho', 'ok esta bueno'),
+(10, 'karla', 'dfdf'),
+(11, 'maria', 'ok,buenas admin');
 
 -- --------------------------------------------------------
 
@@ -235,7 +263,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `ruta`, `nombre`, `apellido`, `fecha`, `email`, `estado`, `capital`, `parroquia`, `usuario`, `contrasena`, `role`) VALUES
 (1, 'user.png', 'jonathan', 'castro', '11-05-2018', 'admin@gmail.com', 'Distrito Capital', 'Caracas', 'El Valle', 'admin', 'admin', 'admin'),
 (2, 'user.png', 'maria', 'perez', '11-05-2018', 'maria@hotmail.com', 'Distrito Capital', 'Caracas', 'Candelaria', 'maria', '1234', 'usuario'),
-(4, 'user.png', 'carlos', 'ramirez', '21-06-2018', 'carlos@yahoo.com', 'Distrito Capital', 'Caracas', 'parroquia', 'carlos', '1234', 'usuario');
+(4, 'user.png', 'carlos', 'ramirez', '21-06-2018', 'carlos@yahoo.com', 'Distrito Capital', 'Caracas', 'parroquia', 'carlos', '1234', 'usuario'),
+(5, 'user.png', 'willian', 'ramirez', '01-07-2018', 'ramirez@gmail.com', 'Distrito Capital', 'Caracas', 'parroquia', 'william', '123', 'usuario');
 
 --
 -- Índices para tablas volcadas
@@ -245,6 +274,12 @@ INSERT INTO `usuarios` (`id`, `ruta`, `nombre`, `apellido`, `fecha`, `email`, `e
 -- Indices de la tabla `capitales`
 --
 ALTER TABLE `capitales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -294,6 +329,12 @@ ALTER TABLE `capitales`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT de la tabla `estados`
 --
 ALTER TABLE `estados`
@@ -327,7 +368,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

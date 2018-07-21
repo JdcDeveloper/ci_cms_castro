@@ -6,13 +6,23 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		// le paso el titulo al header segun la vista
-		$data['title'] = "dashboard"; 
-  // valido que el usuario registrado se encuentre logeado, y evitar que gente (hackers) entren atraves de una url por ejemplo http://localhost/cms_castro/dashboard		
+		$data['title'] = "dashboard";
+
+  // valido que el usuario registrado se encuentre logeado, y evitar que gente (hackers) entren atraves de una url por ejemplo http://localhost/cms_castro/dashboard
 		if ($this->session->userdata('usuario')) {
+
+
+			// usuarios online
+			// if ($usuarios=$this->session->userdata=true) {
+			// 		$data['uOnline'] = $usuarios++;
+					
+			// 	}	
+			
+
 			$data['usuario'] = $this->session->userdata('usuario');		
 
 		    // traemos la data para mostrar la imagen de perfil
-	        $data['datos']=$this->login_model->mostrarImagen(); 
+	        $data['datos'] = $this->login_model->mostrarImagen(); 
             // muestro el total de usuarios 
 			$data['tUsuarios'] = $this->usuarios_model->totalUsuarios();
 
@@ -30,6 +40,9 @@ class Dashboard extends CI_Controller {
 
 			$data['tOfertas'] = $this->usuarios_model->totalOfertas();
 
+			// total comentarios
+			$data['tComentarios'] = $this->comentarios_model->totalComentarios();
+
 			$this->load->view('layouts/header',$data);
 			$this->load->view('admin/navbar',$data);
 			$this->load->view('admin/navigation');		
@@ -42,6 +55,37 @@ class Dashboard extends CI_Controller {
 		
 		
 	}
+
+	public function usuarioDashboard()
+	{
+		// le paso el titulo al header segun la vista
+		$data['title'] = "dashboard";
+
+  // valido que el usuario registrado se encuentre logeado, y evitar que gente (hackers) entren atraves de una url por ejemplo http://localhost/cms_castro/dashboard
+		if ($this->session->userdata('usuario')) {
+
+			
+
+			$data['usuario'] = $this->session->userdata('usuario');		
+
+		    // traemos la data para mostrar la imagen de perfil
+	        $data['datos'] = $this->login_model->mostrarImagen(); 
+           
+
+			$this->load->view('layouts/header',$data);
+			$this->load->view('usuarios/navbar',$data);
+			$this->load->view('usuarios/navigation');		
+			$this->load->view('usuarios/dashboard');
+			$this->load->view('layouts/footer',$data);
+		}else{
+
+			redirect(base_url());
+		}
+		
+		
+	}
+
+	
 
 }	
 

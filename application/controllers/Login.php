@@ -19,6 +19,13 @@ class Login extends CI_Controller {
 	{
 			$data['title'] = "dashboard";
 
+
+				// usuarios online
+				// if ($usuarios=$this->session->userdata=true) {
+				// 	$data['uOnline'] = $usuarios++;
+					
+				// }
+
 			$usuario = $this->input->post('usuario');
 			$contrasena = $this->input->post('contrasena');
 
@@ -28,6 +35,13 @@ class Login extends CI_Controller {
 
 			$data['usuario'] = $this->session->userdata('usuario');
 			$data['contrasena'] = $this->session->userdata('contrasena');
+
+			// usuarios online
+				// if ($usuarios=$this->session->userdata=true) {
+				// 	$data['uOnline'] = $usuarios++;
+					
+				// }
+
 
 			// traemos la data para mostrar el total de usuarios
 			$data['tUsuarios'] = $this->usuarios_model->totalUsuarios();
@@ -46,6 +60,9 @@ class Login extends CI_Controller {
 
 			$data['tOfertas'] = $this->usuarios_model->totalOfertas();
 
+			// total comentarios
+			$data['tComentarios'] = $this->comentarios_model->totalComentarios();
+
 			// traemos la data para mostrar la imagen de perfil
 			$data['datos']=$this->login_model->mostrarImagen();
 
@@ -57,6 +74,13 @@ class Login extends CI_Controller {
 			
 			if ($existeUserPassAdmin)
 			{
+
+				// usuarios online
+				// if ($usuarios=$this->session->userdata=true) {
+				// 	$data['uOnline'] = $usuarios++;
+					
+				// }
+
 				$this->load->view('layouts/header',$data);
 				$this->load->view('admin/navbar',$data);
 				$this->load->view('admin/navigation');				
@@ -65,11 +89,11 @@ class Login extends CI_Controller {
 
 			} elseif ($existeUserPassUsuario){
 
-				// $this->load->view('layouts/header');
-				// $this->load->view('conductores/navbar',$data);
-				// $this->load->view('conductores/navigation');	
+				$this->load->view('layouts/header',$data);
+				$this->load->view('usuarios/navbar',$data);
+				$this->load->view('usuarios/navigation');	
 				$this->load->view('usuarios/dashboard');
-				// $this->load->view('layouts/footer');
+				$this->load->view('layouts/footer');
 
 			
 
