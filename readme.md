@@ -1,14 +1,12 @@
 #Author: Jonathan Castro
-<p>
+<br>
 Versiones:
 Codeigniter 3.1.9
-</p>
-<p>
+<br>
 Base de datos Mysql
-</p>
-<p>
+<br>
+<br>
 Jquery 3.3.1
-</p>
-<p>
+<br>
 Bootstrap 3.3.7
-</p>
+
