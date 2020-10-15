@@ -1,5 +1,3 @@
-# Author: Jonathan Castro
-<br>
 Versiones:
 <br>
 Codeigniter 3.1.9
